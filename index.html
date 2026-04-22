@@ -38,11 +38,12 @@
 
   .logo { color: var(--bright-purple); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
 
-  .hero { text-align: center; padding: 60px 20px 40px; }
+  /* Hero & Stats */
+  .hero { text-align: center; padding: 40px 20px; }
   .hero h1 { 
     color: var(--bright-purple); 
     font-size: 3rem; 
-    margin-bottom: 10px;
+    margin: 0 0 10px;
     text-shadow: 0 0 15px rgba(192, 132, 252, 0.5);
   }
 
@@ -50,19 +51,19 @@
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin: 30px auto;
+    margin: 20px auto 30px;
     flex-wrap: wrap;
   }
 
   .stat-card {
     background: var(--card-bg);
-    padding: 12px 25px;
+    padding: 10px 25px;
     border-radius: 15px;
     display: flex;
     align-items: center;
     gap: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    border: 1px solid var(--main-purple);
+    border: 1px solid rgba(168, 85, 247, 0.3);
   }
 
   .status-dot {
@@ -82,6 +83,61 @@
   .stat-value { font-weight: 800; font-size: 1.3rem; color: var(--bright-purple); display: block; }
   .stat-label { font-size: 0.75rem; color: #b8a3d1; text-transform: uppercase; }
 
+  /* [1] NEW SECTION: FREE CITEM STYLING */
+  .bonus-section {
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    padding: 0 5%;
+    text-align: center;
+  }
+
+  .bonus-title {
+    color: #ff4444; /* Warna merah untuk menarik perhatian */
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .citem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px dashed #ff4444;
+  }
+
+  .citem-card {
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 68, 68, 0.3);
+    transition: 0.3s;
+  }
+
+  .citem-card:hover { transform: scale(1.1) rotate(5deg); border-color: #ff4444; }
+
+  .citem-img {
+    width: 80px; /* Ukuran icon citem */
+    height: 80px;
+    object-fit: contain; /* Agar gambar tidak gepeng */
+    margin-bottom: 5px;
+  }
+
+  .citem-name {
+    font-size: 0.75rem;
+    color: #f3e8ff;
+    font-weight: bold;
+  }
+
+  /* Social & Cards */
   .social { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; }
   .social a { 
     text-decoration: none; padding: 12px 30px; border-radius: 50px; color: white; 
@@ -112,6 +168,11 @@
     background: linear-gradient(to right, var(--main-purple), var(--dark-purple));
     color: white; border-radius: 12px; text-decoration: none; font-weight: bold;
     margin-top: 15px; border: 1px solid var(--bright-purple);
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2.2rem; }
+    .bonus-title { font-size: 1.5rem; }
   }
 </style>
 </head>
@@ -145,6 +206,48 @@
   </div>
 </div>
 
+<div class="bonus-section">
+  <div class="bonus-title">
+    <i class="fas fa-gift"></i> New Player Bonus <i class="fas fa-gift"></i>
+  </div>
+  <p style="color: #b8a3d1; margin-bottom: 20px;">Gabung sekarang dan dapatkan Free 8 Custom Items eksklusif!</p>
+  
+  <div class="citem-grid">
+    <div class="citem-card">
+      <img src="uploaded:1001658280.jpg" alt="Citem 1" class="citem-img">
+      <div class="citem-name">TeraPS Citem 1</div>
+    </div>
+    <div class="citem-card">
+      <img src="uploaded:1001658281.jpg" alt="Citem 2" class="citem-img">
+      <div class="citem-name">TeraPS Citem 2</div>
+    </div>
+    <div class="citem-card">
+      <img src="uploaded:1001658282.jpg" alt="Citem 3" class="citem-img">
+      <div class="citem-name">TeraPS Citem 3</div>
+    </div>
+    <div class="citem-card">
+      <img src="uploaded:1001658283.jpg" alt="Citem 4" class="citem-img">
+      <div class="citem-name">TeraPS Citem 4</div>
+    </div>
+    <div class="citem-card">
+      <img src="uploaded:1001658284.jpg" alt="Citem 5" class="citem-img">
+      <div class="citem-name">TeraPS Citem 5</div>
+    </div>
+    <div class="citem-card">
+      <img src="uploaded:1001658285.jpg" alt="Citem 6" class="citem-img">
+      <div class="citem-name">TeraPS Citem 6</div>
+    </div>
+    <div class="citem-card">
+      <img src="uploaded:1001658286.jpg" alt="Citem 7" class="citem-img">
+      <div class="citem-name">TeraPS Citem 7</div>
+    </div>
+    <div class="citem-card">
+      <img src="uploaded:1001658287.jpg" alt="Citem 8" class="citem-img">
+      <div class="citem-name">TeraPS Citem 8</div>
+    </div>
+  </div>
+</div>
+
 <div class="social">
   <a href="https://discord.gg/pKEkDxe694" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Discord</a>
   <a href="https://chat.whatsapp.com/KUli5gCNFwFJump2usRIpn?mode=wwt" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -153,33 +256,33 @@
 <div class="container">
   <div class="card">
     <h2><i class="fab fa-android"></i> Android APK</h2>
-    <p>Instalasi cepat khusus pengguna Android.</p>
-    <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/file" target="_blank" class="download-btn">Download APK TeraPS</a>
+    <p>Cara paling praktis, tinggal install APK TeraPS.</p>
+    <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/file" target="_blank" class="download-btn">Download APK</a>
   </div>
 
   <div class="card">
     <h2><i class="fas fa-desktop"></i> Host PC / Computer</h2>
-    <p>Salin format ini ke file hosts Windows:</p>
+    <p>Tambahkan baris berikut ke file hosts Windows kamu:</p>
     <div class="config-box">15.235.166.218 www.growtopia1.com 15.235.166.218 www.growtopia2.com</div>
   </div>
 
   <div class="card">
     <h2><i class="fas fa-bolt"></i> Power Tunnel</h2>
-    <p>Link Raw Host untuk Power Tunnel:</p>
+    <p>Salin link raw host berikut ke aplikasi Power Tunnel:</p>
     <div class="config-box">https://gtpshost.com/raw/TeraPS-GH</div>
     <a href="https://powertunnel.id.uptodown.com/android" target="_blank" class="download-btn">Download Power Tunnel App</a>
   </div>
 
   <div class="card">
     <h2><i class="fas fa-file-invoice"></i> Hosts Go (Android)</h2>
-    <p>Download file host dan impor ke aplikasi:</p>
+    <p>Gunakan file host khusus untuk Hosts Go:</p>
     <a href="https://www.mediafire.com/file/yabdip6ls5cab69/TeraPS-GH_-_GTPSHOST.txt/file" target="_blank" class="download-btn" style="background: var(--main-purple);">Download File Host (.txt)</a>
-    <a href="https://apkpure.com/id/no-root-hosts-go/dns.hosts.server.change" target="_blank" class="download-btn">Download App Hosts Go</a>
+    <a href="https://apkpure.com/id/no-root-hosts-go/dns.hosts.server.change" target="_blank" class="download-btn">Download Apps Hosts Go</a>
   </div>
 
   <div class="card">
     <h2><i class="fab fa-apple"></i> iOS (Surge 5)</h2>
-    <p>Konfigurasi Host untuk iPhone/iPad:</p>
+    <p>Konfigurasi Lengkap Surge:</p>
     <div class="config-box">[General]
 bypass-system = true
 
@@ -191,7 +294,7 @@ growtopia1.com = 15.235.166.218
 growtopia2.com = 15.235.166.218
 www.growtopia1.com = 15.235.166.218
 www.growtopia2.com = 15.235.166.218</div>
-    <a href="https://apps.apple.com/id/app/surge-5/id1442620678?l=id" target="_blank" class="download-btn">Download Surge 5 di App Store</a>
+    <a href="https://apps.apple.com/id/app/surge-5/id1442620678?l=id" target="_blank" class="download-btn">Dapatkan di AppStore</a>
   </div>
 </div>
 
