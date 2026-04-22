@@ -3,179 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teraps GTPS</title>
+<title>Teraps GTPS - Server Community</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0618;
-  color: white;
-}
+  :root {
+    --primary-purple: #a855f7;
+    --dark-bg: #120a24;
+    --body-bg: #d9e6ec;
+  }
 
-/* HEADER */
-header {
-  background: #140a2e;
-  padding: 15px;
-  text-align: center;
-  border-bottom: 1px solid #2d1b4d;
-}
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--body-bg);
+    color: #333;
+  }
 
-header h1 {
-  margin: 0;
-  color: #c084fc;
-}
+  header {
+    background: var(--dark-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
 
-/* CONTAINER */
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
+  .logo { color: #c084fc; font-weight: 800; font-size: 1.5rem; text-transform: uppercase; }
 
-/* PANEL */
-.panel {
-  background: #140a2e;
-  border: 1px solid #2d1b4d;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
+  .hero { text-align: center; padding: 40px 20px; }
+  .hero h1 { color: var(--primary-purple); font-size: 2.5rem; margin-bottom: 10px; }
 
-/* TITLE */
-.panel h2 {
-  margin-top: 0;
-  color: #d8b4fe;
-}
+  .social { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; }
+  .social a { text-decoration: none; padding: 10px 25px; border-radius: 50px; color: white; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+  .btn-discord { background: #5865F2; }
+  .btn-wa { background: #25D366; }
 
-/* ONLINE */
-.online {
-  color: #a855f7;
-  font-weight: bold;
-}
+  .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; padding: 0 5% 50px; }
 
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin: 10px 5px;
-  padding: 10px 20px;
-  background: #1f1147;
-  border: 1px solid #3b1e66;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s;
-}
+  .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+  .card h2 { margin-top: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+  
+  .config-box {
+    background: #1e1e1e;
+    color: #00ff00;
+    padding: 15px;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    margin: 10px 0;
+    white-space: pre-wrap;
+  }
 
-.btn:hover {
-  background: #a855f7;
-  box-shadow: 0 0 10px #a855f7;
-}
+  .download-btn {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: var(--dark-bg);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+  }
 
-/* GRID ITEM */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 15px;
-}
+  .download-btn:hover { background: var(--primary-purple); }
 
-.item {
-  background: #0f0824;
-  border: 1px solid #2d1b4d;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.item:hover {
-  transform: scale(1.05);
-  border-color: #a855f7;
-  box-shadow: 0 0 10px #a855f7;
-}
-
-.item img {
-  width: 60px;
-  height: 60px;
-}
-
-/* LIST INFO */
-.info {
-  text-align: left;
-}
-
-.info p {
-  margin: 5px 0;
-  color: #c4b5fd;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #9f7aea;
-}
+  @media (max-width: 600px) { .hero h1 { font-size: 1.8rem; } }
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>TERAPS GTPS</h1>
+  <div class="logo">TERAPS</div>
+  <a href="https://discord.gg/pKEkDxe694" class="social-link" style="color: white; text-decoration: none;">Join Discord</a>
 </header>
 
+<div class="hero">
+  <h1>TeraPS Server Community</h1>
+  <p>Gunakan konfigurasi di bawah ini untuk terhubung ke server</p>
+</div>
+
+<div class="social">
+  <a href="https://discord.gg/pKEkDxe694" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Discord</a>
+  <a href="https://chat.whatsapp.com/KUli5gCNFwFJump2usRIpn?mode=wwt" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+</div>
+
 <div class="container">
-
-  <!-- PANEL 1 -->
-  <div class="panel">
-    <h2>Welcome to Teraps 🔥</h2>
-    <p>Server GTPS terbaik dengan fitur keren!</p>
-
-    <p>Status: <span class="online">Online <span id="playerCount">60</span>+</span></p>
-
-    <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/fileNEW" class="btn">Download APK</a>
-    <a href="https://linktr.ee/teraps__" class="btn">Linktree</a>
+  
+  <div class="card">
+    <h2><i class="fab fa-android"></i> Android APK</h2>
+    <p>Cara instan, tinggal pasang dan main.</p>
+    <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/file" class="download-btn">Download TeraPS APK</a>
   </div>
 
-  <!-- PANEL 2 -->
-  <div class="panel">
-    <h2>💎 8 Item Gratis</h2>
-
-    <div class="grid">
-      <div class="item"><img src="item1.png"><p>Item 1</p></div>
-      <div class="item"><img src="item2.png"><p>Item 2</p></div>
-      <div class="item"><img src="item3.png"><p>Item 3</p></div>
-      <div class="item"><img src="item4.png"><p>Item 4</p></div>
-      <div class="item"><img src="item5.png"><p>Item 5</p></div>
-      <div class="item"><img src="item6.png"><p>Item 6</p></div>
-      <div class="item"><img src="item7.png"><p>Item 7</p></div>
-      <div class="item"><img src="item8.png"><p>Item 8</p></div>
-    </div>
+  <div class="card">
+    <h2><i class="fas fa-bolt"></i> Power Tunnel (Android)</h2>
+    <p>Salin link raw host di bawah ini ke aplikasi Power Tunnel kamu:</p>
+    <div class="config-box">https://gtpshost.com/raw/TeraPS-GH</div>
+    <a href="https://powertunnel.id.uptodown.com/android" class="download-btn">Download Power Tunnel</a>
   </div>
 
-  <!-- PANEL 3 -->
-  <div class="panel info">
-    <h2>📜 Info Server</h2>
-    <p>✔ Fast Grow</p>
-    <p>✔ Event Setiap Hari</p>
-    <p>✔ Admin Aktif</p>
-    <p>✔ Anti Lag & Smooth</p>
+  <div class="card">
+    <h2><i class="fas fa-file-code"></i> Hosts Go (Android)</h2>
+    <p>Download file host dan impor ke aplikasi Hosts Go:</p>
+    <a href="https://www.mediafire.com/file/yabdip6ls5cab69/TeraPS-GH_-_GTPSHOST.txt/file" class="download-btn" style="background: #f59e0b;">Download File Host</a>
+    <a href="https://apkpure.com/id/no-root-hosts-go/dns.hosts.server.change" class="download-btn">Download App Hosts Go</a>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-desktop"></i> PC / Windows</h2>
+    <p>Tambahkan baris ini ke file hosts Windows kamu:</p>
+    <div class="config-box">15.235.166.218 www.growtopia1.com
+15.235.166.218 www.growtopia2.com</div>
+  </div>
+
+  <div class="card">
+    <h2><i class="fab fa-apple"></i> iOS (Surge)</h2>
+    <p>Gunakan konfigurasi Surge berikut:</p>
+    <div class="config-box">[General]
+bypass-system = true
+
+[Rule]
+FINAL, DIRECT
+
+[Host]
+growtopia1.com = 15.235.166.218
+growtopia2.com = 15.235.166.218</div>
+    <a href="https://apps.apple.com/id/app/surge-5/id1442620678?l=id" class="download-btn">Get Surge 5</a>
   </div>
 
 </div>
-
-<footer>
-  © 2026 Teraps GTPS
-</footer>
-
-<script>
-function updatePlayers() {
-  let base = 60;
-  let random = Math.floor(Math.random() * 10);
-  document.getElementById("playerCount").textContent = base + random;
-}
-setInterval(updatePlayers, 5000);
-</script>
 
 </body>
 </html>
