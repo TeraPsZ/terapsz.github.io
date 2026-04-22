@@ -1,76 +1,126 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teraps GTPS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teraps GTPS</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #0f172a, #020617);
-      color: white;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a0615;
+  color: white;
+}
 
-    header {
-      padding: 20px;
-      text-align: center;
-      background: rgba(2,6,23,0.8);
-    }
+/* HEADER */
+header {
+  background: #120a24;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #2e1a47;
+}
 
-    header h1 {
-      margin: 0;
-      color: #38bdf8;
-    }
+header h1 {
+  margin: 0;
+  color: #c084fc;
+}
 
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      background: radial-gradient(circle, rgba(56,189,248,0.2), transparent);
-    }
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 70px 20px;
+}
 
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: #38bdf8;
-      color: black;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+.hero h2 {
+  margin-bottom: 10px;
+}
 
-    .btn:hover {
-      transform: scale(1.1);
-    }
+.hero p {
+  color: #b8a6d9;
+}
 
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-    }
+/* ONLINE BOX */
+.online-box {
+  margin: 20px auto;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #a855f7;
+  border-radius: 8px;
+  color: #c084fc;
+  background: rgba(168,85,247,0.1);
+  box-shadow: 0 0 10px #a855f7;
+}
 
-    .card {
-      background: rgba(2,6,23,0.8);
-      padding: 20px;
-      border-radius: 15px;
-      margin: 10px;
-      display: inline-block;
-      transition: 0.3s;
-    }
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 25px;
+  background: #1a1033;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid #3b1e66;
+  transition: 0.3s;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px #38bdf8;
-    }
+.btn:hover {
+  background: #a855f7;
+  color: white;
+  box-shadow: 0 0 15px #a855f7;
+}
 
-    .online {
-      color: #22c55e;
-      text-shadow: 0 0 10px #22c55e;
-      font-weight: bold;
-    }
-  </style>
+/* SECTION */
+.section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* GRID ITEM */
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* ITEM BOX */
+.item {
+  background: #120a24;
+  border: 1px solid #2e1a47;
+  border-radius: 10px;
+  padding: 15px;
+  transition: 0.3s;
+}
+
+.item:hover {
+  border-color: #a855f7;
+  box-shadow: 0 0 12px #a855f7;
+  transform: scale(1.05);
+}
+
+.item img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.item p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #9f7aea;
+  border-top: 1px solid #2e1a47;
+}
+</style>
 </head>
 
 <body>
@@ -83,39 +133,42 @@
   <h2>Welcome to Teraps 🔥</h2>
   <p>Server GTPS terbaik dengan fitur keren!</p>
 
-  <div id="status">
-    Online Players: <span class="online" id="playerCount">60</span>+
+  <div class="online-box">
+    Online Players: <span id="playerCount">60</span>+
   </div>
 
-  <!-- DOWNLOAD APK -->
+  <br>
+
   <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/fileNEW" class="btn">📥 Download APK</a>
-
-  <!-- LINKTREE -->
   <a href="https://linktr.ee/teraps__" class="btn">🌐 Linktree</a>
-
 </section>
 
 <section class="section">
-  <h2>Fitur</h2>
-  <div class="card">💎 8 Item Gratis</div>
-  <div class="card">⚡ Fast Grow</div>
-  <div class="card">🎉 Event Seru</div>
+  <h2>💎 8 Item Gratis</h2>
+
+  <div class="item-grid">
+    <div class="item"><img src="item1.png"><p>Item 1</p></div>
+    <div class="item"><img src="item2.png"><p>Item 2</p></div>
+    <div class="item"><img src="item3.png"><p>Item 3</p></div>
+    <div class="item"><img src="item4.png"><p>Item 4</p></div>
+    <div class="item"><img src="item5.png"><p>Item 5</p></div>
+    <div class="item"><img src="item6.png"><p>Item 6</p></div>
+    <div class="item"><img src="item7.png"><p>Item 7</p></div>
+    <div class="item"><img src="item8.png"><p>Item 8</p></div>
+  </div>
 </section>
 
-<footer class="section">
+<footer>
   © 2026 Teraps GTPS
 </footer>
 
 <script>
-  function updatePlayers() {
-    let base = 60;
-    let random = Math.floor(Math.random() * 10);
-    let total = base + random;
-
-    document.getElementById("playerCount").textContent = total;
-  }
-
-  setInterval(updatePlayers, 5000);
+function updatePlayers() {
+  let base = 60;
+  let random = Math.floor(Math.random() * 10);
+  document.getElementById("playerCount").textContent = base + random;
+}
+setInterval(updatePlayers, 5000);
 </script>
 
 </body>
