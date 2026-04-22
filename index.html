@@ -38,7 +38,6 @@
 
   .logo { color: var(--bright-purple); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
 
-  /* Hero & Stats */
   .hero { text-align: center; padding: 40px 20px; }
   .hero h1 { 
     color: var(--bright-purple); 
@@ -83,7 +82,7 @@
   .stat-value { font-weight: 800; font-size: 1.3rem; color: var(--bright-purple); display: block; }
   .stat-label { font-size: 0.75rem; color: #b8a3d1; text-transform: uppercase; }
 
-  /* [1] NEW SECTION: FREE CITEM STYLING */
+  /* BONUS CITEM SECTION */
   .bonus-section {
     max-width: 1000px;
     margin: 0 auto 50px;
@@ -92,7 +91,7 @@
   }
 
   .bonus-title {
-    color: #ff4444; /* Warna merah untuk menarik perhatian */
+    color: #ff4444;
     font-size: 2rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -106,7 +105,7 @@
 
   .citem-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     gap: 15px;
     background: rgba(255, 255, 255, 0.05);
     padding: 20px;
@@ -116,25 +115,27 @@
 
   .citem-card {
     background: var(--card-bg);
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 68, 68, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 68, 68, 0.2);
     transition: 0.3s;
   }
 
-  .citem-card:hover { transform: scale(1.1) rotate(5deg); border-color: #ff4444; }
+  .citem-card:hover { transform: translateY(-5px) scale(1.05); border-color: #ff4444; }
 
   .citem-img {
-    width: 80px; /* Ukuran icon citem */
-    height: 80px;
-    object-fit: contain; /* Agar gambar tidak gepeng */
-    margin-bottom: 5px;
+    width: 100%;
+    height: auto;
+    max-width: 80px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    margin-bottom: 8px;
   }
 
   .citem-name {
-    font-size: 0.75rem;
-    color: #f3e8ff;
-    font-weight: bold;
+    font-size: 0.8rem;
+    color: #fff;
+    font-weight: 600;
   }
 
   /* Social & Cards */
@@ -185,7 +186,7 @@
 
 <div class="hero">
   <h1>TeraPS Community</h1>
-  <p style="color: #b8a3d1;">Pilih platform kamu dan mulailah bermain!</p>
+  <p style="color: #b8a3d1;">Gabung sekarang dan klaim hadiah eksklusif kamu!</p>
 
   <div class="stats-container">
     <div class="stat-card">
@@ -210,40 +211,40 @@
   <div class="bonus-title">
     <i class="fas fa-gift"></i> New Player Bonus <i class="fas fa-gift"></i>
   </div>
-  <p style="color: #b8a3d1; margin-bottom: 20px;">Gabung sekarang dan dapatkan Free 8 Custom Items eksklusif!</p>
+  <p style="color: #b8a3d1; margin-bottom: 20px;">Dapatkan 8 Custom Item GRATIS saat pertama kali login!</p>
   
   <div class="citem-grid">
     <div class="citem-card">
-      <img src="uploaded:1001658280.jpg" alt="Citem 1" class="citem-img">
-      <div class="citem-name">TeraPS Citem 1</div>
+      <img src="redhulk.jpg" alt="Red Hulk" class="citem-img">
+      <div class="citem-name">Red Hulk</div>
     </div>
     <div class="citem-card">
-      <img src="uploaded:1001658281.jpg" alt="Citem 2" class="citem-img">
-      <div class="citem-name">TeraPS Citem 2</div>
+      <img src="chaewon.jpg" alt="Chae-Won" class="citem-img">
+      <div class="citem-name">Chae-Won</div>
     </div>
     <div class="citem-card">
-      <img src="uploaded:1001658282.jpg" alt="Citem 3" class="citem-img">
-      <div class="citem-name">TeraPS Citem 3</div>
+      <img src="nailong.jpg" alt="Nailong" class="citem-img">
+      <div class="citem-name">Nailong</div>
     </div>
     <div class="citem-card">
-      <img src="uploaded:1001658283.jpg" alt="Citem 4" class="citem-img">
-      <div class="citem-name">TeraPS Citem 4</div>
+      <img src="stitch.jpg" alt="Stitch" class="citem-img">
+      <div class="citem-name">Stitch</div>
     </div>
     <div class="citem-card">
-      <img src="uploaded:1001658284.jpg" alt="Citem 5" class="citem-img">
-      <div class="citem-name">TeraPS Citem 5</div>
+      <img src="bloodmage.jpg" alt="Blood Mage" class="citem-img">
+      <div class="citem-name">Blood Mage</div>
     </div>
     <div class="citem-card">
-      <img src="uploaded:1001658285.jpg" alt="Citem 6" class="citem-img">
-      <div class="citem-name">TeraPS Citem 6</div>
+      <img src="shadow.jpg" alt="Shadow" class="citem-img">
+      <div class="citem-name">Shadow</div>
     </div>
     <div class="citem-card">
-      <img src="uploaded:1001658286.jpg" alt="Citem 7" class="citem-img">
-      <div class="citem-name">TeraPS Citem 7</div>
+      <img src="gojo.jpg" alt="Gojo" class="citem-img">
+      <div class="citem-name">Gojo</div>
     </div>
     <div class="citem-card">
-      <img src="uploaded:1001658287.jpg" alt="Citem 8" class="citem-img">
-      <div class="citem-name">TeraPS Citem 8</div>
+      <img src="mitsuki.jpg" alt="Mitsuki" class="citem-img">
+      <div class="citem-name">Mitsuki</div>
     </div>
   </div>
 </div>
@@ -256,28 +257,28 @@
 <div class="container">
   <div class="card">
     <h2><i class="fab fa-android"></i> Android APK</h2>
-    <p>Cara paling praktis, tinggal install APK TeraPS.</p>
+    <p>Install APK TeraPS dan langsung main.</p>
     <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/file" target="_blank" class="download-btn">Download APK</a>
   </div>
 
   <div class="card">
     <h2><i class="fas fa-desktop"></i> Host PC / Computer</h2>
-    <p>Tambahkan baris berikut ke file hosts Windows kamu:</p>
+    <p>Salin format ini ke file hosts Windows:</p>
     <div class="config-box">15.235.166.218 www.growtopia1.com 15.235.166.218 www.growtopia2.com</div>
   </div>
 
   <div class="card">
     <h2><i class="fas fa-bolt"></i> Power Tunnel</h2>
-    <p>Salin link raw host berikut ke aplikasi Power Tunnel:</p>
+    <p>Link Raw Host untuk Power Tunnel:</p>
     <div class="config-box">https://gtpshost.com/raw/TeraPS-GH</div>
-    <a href="https://powertunnel.id.uptodown.com/android" target="_blank" class="download-btn">Download Power Tunnel App</a>
+    <a href="https://powertunnel.id.uptodown.com/android" target="_blank" class="download-btn">Download App</a>
   </div>
 
   <div class="card">
     <h2><i class="fas fa-file-invoice"></i> Hosts Go (Android)</h2>
-    <p>Gunakan file host khusus untuk Hosts Go:</p>
-    <a href="https://www.mediafire.com/file/yabdip6ls5cab69/TeraPS-GH_-_GTPSHOST.txt/file" target="_blank" class="download-btn" style="background: var(--main-purple);">Download File Host (.txt)</a>
-    <a href="https://apkpure.com/id/no-root-hosts-go/dns.hosts.server.change" target="_blank" class="download-btn">Download Apps Hosts Go</a>
+    <p>Download file host khusus untuk Hosts Go:</p>
+    <a href="https://www.mediafire.com/file/yabdip6ls5cab69/TeraPS-GH_-_GTPSHOST.txt/file" target="_blank" class="download-btn" style="background: var(--main-purple);">Download File Host</a>
+    <a href="https://apkpure.com/id/no-root-hosts-go/dns.hosts.server.change" target="_blank" class="download-btn">Download App</a>
   </div>
 
   <div class="card">
@@ -294,7 +295,7 @@ growtopia1.com = 15.235.166.218
 growtopia2.com = 15.235.166.218
 www.growtopia1.com = 15.235.166.218
 www.growtopia2.com = 15.235.166.218</div>
-    <a href="https://apps.apple.com/id/app/surge-5/id1442620678?l=id" target="_blank" class="download-btn">Dapatkan di AppStore</a>
+    <a href="https://apps.apple.com/id/app/surge-5/id1442620678?l=id" target="_blank" class="download-btn">Get Surge 5</a>
   </div>
 </div>
 
