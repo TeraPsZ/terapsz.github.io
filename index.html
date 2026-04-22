@@ -8,18 +8,17 @@
 
 <style>
   :root {
-    --bright-purple: #c084fc; /* Ungu Terang */
-    --main-purple: #a855f7;   /* Ungu Standar */
-    --dark-purple: #120a24;   /* Ungu Sangat Gelap (Hampir Hitam) */
-    --deep-bg: #1e113a;       /* Ungu Gelap untuk Background */
-    --card-bg: #2d1b4d;       /* Ungu untuk Kartu */
+    --bright-purple: #c084fc; 
+    --main-purple: #a855f7;   
+    --dark-purple: #120a24;   
+    --deep-bg: #1e113a;       
+    --card-bg: #2d1b4d;       
     --text-light: #f3e8ff;
   }
 
   body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Gradasi background gelap ke lebih terang sedikit */
     background: linear-gradient(135deg, var(--dark-purple) 0%, var(--deep-bg) 100%);
     color: var(--text-light);
     min-height: 100vh;
@@ -37,15 +36,8 @@
     border-bottom: 2px solid var(--main-purple);
   }
 
-  .logo { 
-    color: var(--bright-purple); 
-    font-weight: 800; 
-    font-size: 1.5rem; 
-    text-transform: uppercase; 
-    letter-spacing: 2px;
-  }
+  .logo { color: var(--bright-purple); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
 
-  /* Hero & Stats */
   .hero { text-align: center; padding: 60px 20px 40px; }
   .hero h1 { 
     color: var(--bright-purple); 
@@ -74,8 +66,7 @@
   }
 
   .status-dot {
-    width: 12px;
-    height: 12px;
+    width: 12px; height: 12px;
     background: #22c55e;
     border-radius: 50%;
     box-shadow: 0 0 10px #22c55e;
@@ -91,82 +82,36 @@
   .stat-value { font-weight: 800; font-size: 1.3rem; color: var(--bright-purple); display: block; }
   .stat-label { font-size: 0.75rem; color: #b8a3d1; text-transform: uppercase; }
 
-  /* Social */
   .social { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; }
   .social a { 
-    text-decoration: none; 
-    padding: 12px 30px; 
-    border-radius: 50px; 
-    color: white; 
-    font-weight: 600; 
-    display: flex; 
-    align-items: center; 
-    gap: 10px; 
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-decoration: none; padding: 12px 30px; border-radius: 50px; color: white; 
+    font-weight: 600; display: flex; align-items: center; gap: 10px; transition: 0.3s;
   }
   .btn-discord { background: #5865F2; }
   .btn-wa { background: #25D366; }
-  .social a:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-  /* Cards */
   .container { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-    gap: 25px; 
-    padding: 0 5% 80px; 
-    max-width: 1200px;
-    margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 25px; padding: 0 5% 80px; max-width: 1200px; margin: 0 auto;
   }
 
   .card { 
-    background: var(--card-bg); 
-    padding: 30px; 
-    border-radius: 20px; 
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-    border: 1px solid rgba(168, 85, 247, 0.1);
-    transition: 0.3s;
+    background: var(--card-bg); padding: 30px; border-radius: 20px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 1px solid rgba(168, 85, 247, 0.1); transition: 0.3s;
   }
-  .card:hover { border-color: var(--main-purple); transform: translateY(-5px); }
-
-  .card h2 { 
-    margin-top: 0; 
-    font-size: 1.4rem; 
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
-    color: var(--bright-purple);
-  }
+  .card h2 { margin-top: 0; font-size: 1.4rem; display: flex; align-items: center; gap: 12px; color: var(--bright-purple); }
   
   .config-box {
-    background: #120a24;
-    color: #a8ffcc; /* Warna teks config agak kehijauan agar kontras */
-    padding: 15px;
-    border-radius: 12px;
-    font-family: 'Consolas', monospace;
-    font-size: 0.85rem;
-    overflow-x: auto;
-    margin: 15px 0;
-    border: 1px dashed var(--main-purple);
+    background: #120a24; color: #a8ffcc; padding: 15px; border-radius: 12px;
+    font-family: 'Consolas', monospace; font-size: 0.85rem; overflow-x: auto;
+    margin: 15px 0; border: 1px dashed var(--main-purple); white-space: pre-wrap;
   }
 
   .download-btn {
-    display: block;
-    text-align: center;
-    padding: 14px;
+    display: block; text-align: center; padding: 14px;
     background: linear-gradient(to right, var(--main-purple), var(--dark-purple));
-    color: white;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
-    border: 1px solid var(--bright-purple);
-  }
-  .download-btn:hover { background: var(--bright-purple); color: var(--dark-purple); }
-
-  @media (max-width: 600px) { 
-    .hero h1 { font-size: 2.2rem; }
-    .container { padding: 0 20px 50px; }
+    color: white; border-radius: 12px; text-decoration: none; font-weight: bold;
+    margin-top: 15px; border: 1px solid var(--bright-purple);
   }
 </style>
 </head>
@@ -179,7 +124,7 @@
 
 <div class="hero">
   <h1>TeraPS Community</h1>
-  <p style="color: #b8a3d1;">Server Private terbaik dengan skema warna eksklusif.</p>
+  <p style="color: #b8a3d1;">Gunakan data host berikut untuk bermain di PC atau Mobile!</p>
 
   <div class="stats-container">
     <div class="stat-card">
@@ -194,7 +139,7 @@
       <i class="fas fa-users" style="color: var(--bright-purple); font-size: 1.5rem;"></i>
       <div style="text-align: left;">
         <span class="stat-value" id="player-count">60</span>
-        <span class="stat-label">Players</span>
+        <span class="stat-label">Players Online</span>
       </div>
     </div>
   </div>
@@ -208,44 +153,18 @@
 <div class="container">
   <div class="card">
     <h2><i class="fab fa-android"></i> Android APK</h2>
-    <p>Gunakan APK resmi untuk akses fitur termudah.</p>
+    <p>Cara paling praktis, tinggal install APK TeraPS.</p>
     <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/file" class="download-btn">Download APK</a>
   </div>
 
   <div class="card">
+    <h2><i class="fas fa-desktop"></i> Host PC / Computer</h2>
+    <p>Tambahkan baris berikut ke file hosts Windows kamu:</p>
+    <div class="config-box">15.235.166.218 www.growtopia1.com 15.235.166.218 www.growtopia2.com</div>
+  </div>
+
+  <div class="card">
     <h2><i class="fas fa-bolt"></i> Power Tunnel</h2>
-    <p>Salin link raw host di bawah ini:</p>
-    <div class="config-box">https://gtpshost.com/raw/TeraPS-GH</div>
-    <a href="https://powertunnel.id.uptodown.com/android" class="download-btn">Dapatkan App</a>
-  </div>
-
-  <div class="card">
-    <h2><i class="fas fa-file-invoice"></i> Hosts Go</h2>
-    <p>Impor file host ke dalam aplikasi:</p>
-    <a href="https://www.mediafire.com/file/yabdip6ls5cab69/TeraPS-GH_-_GTPSHOST.txt/file" class="download-btn" style="background: var(--main-purple);">Download File Host</a>
-    <a href="https://apkpure.com/id/no-root-hosts-go/dns.hosts.server.change" class="download-btn">Download App</a>
-  </div>
-
-  <div class="card">
-    <h2><i class="fab fa-apple"></i> iOS (Surge)</h2>
-    <p>Konfigurasi Host Surge:</p>
-    <div class="config-box">[Host]
-growtopia1.com = 15.235.166.218
-growtopia2.com = 15.235.166.218</div>
-    <a href="https://apps.apple.com/id/app/surge-5/id1442620678?l=id" class="download-btn">Get Surge 5</a>
-  </div>
-</div>
-
-<script>
-  function updatePlayers() {
-    const min = 61;
-    const max = 69;
-    const randomCount = Math.floor(Math.random() * (max - min + 1)) + min;
-    document.getElementById('player-count').innerText = randomCount;
-  }
-  setInterval(updatePlayers, 4000);
-  updatePlayers();
-</script>
-
-</body>
-</html>
+    <p>Gunakan link raw berikut di aplikasi Power Tunnel:</p>
+    <div class="config-box">
+      
