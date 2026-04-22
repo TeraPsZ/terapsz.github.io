@@ -119,12 +119,12 @@
 
 <header>
   <div class="logo">TERAPS</div>
-  <div style="color: var(--bright-purple); font-size: 0.8rem; font-weight: bold;">v2.0 LIVE</div>
+  <div style="color: var(--bright-purple); font-size: 0.8rem; font-weight: bold;">LIVE STATUS</div>
 </header>
 
 <div class="hero">
   <h1>TeraPS Community</h1>
-  <p style="color: #b8a3d1;">Gunakan data host berikut untuk bermain di PC atau Mobile!</p>
+  <p style="color: #b8a3d1;">Pilih platform kamu dan mulailah bermain!</p>
 
   <div class="stats-container">
     <div class="stat-card">
@@ -153,18 +153,57 @@
 <div class="container">
   <div class="card">
     <h2><i class="fab fa-android"></i> Android APK</h2>
-    <p>Cara paling praktis, tinggal install APK TeraPS.</p>
-    <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/file" class="download-btn">Download APK</a>
+    <p>Instalasi cepat khusus pengguna Android.</p>
+    <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/file" target="_blank" class="download-btn">Download APK TeraPS</a>
   </div>
 
   <div class="card">
     <h2><i class="fas fa-desktop"></i> Host PC / Computer</h2>
-    <p>Tambahkan baris berikut ke file hosts Windows kamu:</p>
+    <p>Salin format ini ke file hosts Windows:</p>
     <div class="config-box">15.235.166.218 www.growtopia1.com 15.235.166.218 www.growtopia2.com</div>
   </div>
 
   <div class="card">
     <h2><i class="fas fa-bolt"></i> Power Tunnel</h2>
-    <p>Gunakan link raw berikut di aplikasi Power Tunnel:</p>
-    <div class="config-box">
-      
+    <p>Link Raw Host untuk Power Tunnel:</p>
+    <div class="config-box">https://gtpshost.com/raw/TeraPS-GH</div>
+    <a href="https://powertunnel.id.uptodown.com/android" target="_blank" class="download-btn">Download Power Tunnel App</a>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-file-invoice"></i> Hosts Go (Android)</h2>
+    <p>Download file host dan impor ke aplikasi:</p>
+    <a href="https://www.mediafire.com/file/yabdip6ls5cab69/TeraPS-GH_-_GTPSHOST.txt/file" target="_blank" class="download-btn" style="background: var(--main-purple);">Download File Host (.txt)</a>
+    <a href="https://apkpure.com/id/no-root-hosts-go/dns.hosts.server.change" target="_blank" class="download-btn">Download App Hosts Go</a>
+  </div>
+
+  <div class="card">
+    <h2><i class="fab fa-apple"></i> iOS (Surge 5)</h2>
+    <p>Konfigurasi Host untuk iPhone/iPad:</p>
+    <div class="config-box">[General]
+bypass-system = true
+
+[Rule]
+FINAL, DIRECT
+
+[Host]
+growtopia1.com = 15.235.166.218
+growtopia2.com = 15.235.166.218
+www.growtopia1.com = 15.235.166.218
+www.growtopia2.com = 15.235.166.218</div>
+    <a href="https://apps.apple.com/id/app/surge-5/id1442620678?l=id" target="_blank" class="download-btn">Download Surge 5 di App Store</a>
+  </div>
+</div>
+
+<script>
+  function updatePlayers() {
+    const min = 62; const max = 69;
+    const randomCount = Math.floor(Math.random() * (max - min + 1)) + min;
+    document.getElementById('player-count').innerText = randomCount;
+  }
+  setInterval(updatePlayers, 5000);
+  updatePlayers();
+</script>
+
+</body>
+</html>
