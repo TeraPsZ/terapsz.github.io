@@ -17,9 +17,10 @@
   }
 
   body {
-    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, var(--dark-purple) 0%, var(--deep-bg) 100%);
     color: var(--text-light); min-height: 100vh;
+    overflow-x: hidden;
   }
 
   header {
@@ -30,46 +31,66 @@
 
   .logo { color: var(--bright-purple); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
 
+  /* Tombol Melayang untuk Spin */
+  .floating-spin-btn {
+    position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px;
+    background: gold; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 2rem; color: var(--dark-purple);
+    cursor: pointer; z-index: 999; box-shadow: 0 0 20px gold;
+    animation: bounce 2s infinite; border: 4px solid white;
+  }
+  @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+  /* Layout Konten Utama */
   .hero { text-align: center; padding: 40px 20px; }
-  .hero h1 { color: var(--bright-purple); font-size: 3rem; margin: 0 0 10px; text-shadow: 0 0 15px rgba(192, 132, 252, 0.5); }
+  .hero h1 { color: var(--bright-purple); font-size: 3rem; margin-bottom: 10px; }
 
-  .stats-container { display: flex; justify-content: center; gap: 15px; margin: 20px auto 30px; flex-wrap: wrap; }
-  .stat-card { background: var(--card-bg); padding: 10px 25px; border-radius: 15px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(168, 85, 247, 0.3); }
+  .stats-container { display: flex; justify-content: center; gap: 15px; margin: 20px auto; flex-wrap: wrap; }
+  .stat-card { background: var(--card-bg); padding: 10px 25px; border-radius: 15px; display: flex; align-items: center; gap: 12px; border: 1px solid var(--main-purple); }
 
-  .status-dot { width: 12px; height: 12px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e; animation: pulse 2s infinite; }
-  @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+  /* Bonus Section */
+  .bonus-section { max-width: 1000px; margin: 0 auto 40px; padding: 0 5%; text-align: center; }
+  .bonus-title { color: #ff4444; font-size: 2rem; font-weight: 800; margin-bottom: 25px; }
+  .citem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px; border: 2px dashed #ff4444; }
+  .citem-card { background: var(--card-bg); padding: 10px; border-radius: 10px; border: 1px solid rgba(255,68,68,0.2); }
+  .citem-img { width: 100%; max-width: 80px; aspect-ratio: 1/1; object-fit: contain; }
 
-  /* BONUS SECTION */
-  .bonus-section { max-width: 1000px; margin: 0 auto 50px; padding: 0 5%; text-align: center; }
-  .bonus-title { color: #ff4444; font-size: 2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; gap: 15px; }
-  .citem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 15px; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 20px; border: 2px dashed #ff4444; }
-  .citem-card { background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 68, 68, 0.2); transition: 0.3s; }
-  .citem-img { width: 100%; max-width: 80px; aspect-ratio: 1/1; object-fit: contain; margin-bottom: 8px; }
-  .citem-name { font-size: 0.8rem; color: #fff; font-weight: 600; }
+  /* MODAL / JENDELA SPIN */
+  .modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9); display: none; align-items: center;
+    justify-content: center; z-index: 2000; padding: 20px;
+  }
+  .modal-overlay.active { display: flex; }
+  
+  .spin-modal {
+    background: var(--card-bg); width: 100%; max-width: 500px;
+    padding: 30px; border-radius: 30px; border: 2px solid var(--bright-purple);
+    position: relative; text-align: center;
+  }
+  .close-modal { position: absolute; top: 20px; right: 20px; font-size: 1.5rem; color: white; cursor: pointer; }
 
-  /* SPIN SECTION */
-  .spin-section { max-width: 800px; margin: 40px auto; text-align: center; background: var(--card-bg); padding: 40px 20px; border-radius: 30px; border: 2px solid var(--main-purple); }
-  .redeem-box { margin-bottom: 25px; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 15px; border: 1px solid var(--main-purple); }
-  .redeem-box input { padding: 12px; border-radius: 8px; border: 1px solid var(--bright-purple); background: var(--dark-purple); color: white; width: 220px; text-align: center; font-weight: bold; }
-  .wheel-container { position: relative; width: 300px; height: 300px; margin: 20px auto; }
+  .wheel-container { position: relative; width: 280px; height: 280px; margin: 20px auto; }
   #canvas { width: 100%; height: 100%; border-radius: 50%; border: 5px solid var(--dark-purple); }
   .pointer { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 30px solid #ff4444; z-index: 10; }
-  .spin-btn { padding: 12px 40px; background: #666; border: none; border-radius: 50px; color: white; font-weight: 800; cursor: not-allowed; transition: 0.3s; }
-  .spin-btn.active { background: var(--main-purple); cursor: pointer; box-shadow: 0 5px 15px rgba(168, 85, 247, 0.6); }
 
-  /* DOWNLOAD CARDS */
-  .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 0 5% 80px; max-width: 1200px; margin: 0 auto; }
-  .card { background: var(--card-bg); padding: 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 1px solid rgba(168, 85, 247, 0.1); }
-  .config-box { background: #120a24; color: #a8ffcc; padding: 15px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.85rem; overflow-x: auto; margin: 15px 0; border: 1px dashed var(--main-purple); white-space: pre-wrap; }
-  .download-btn { display: block; text-align: center; padding: 14px; background: linear-gradient(to right, var(--main-purple), var(--dark-purple)); color: white; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 15px; border: 1px solid var(--bright-purple); }
+  /* UI Cards */
+  .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 0 5% 80px; max-width: 1200px; margin: 0 auto; }
+  .card { background: var(--card-bg); padding: 25px; border-radius: 20px; border: 1px solid rgba(168,85,247,0.1); }
+  .config-box { background: #120a24; color: #a8ffcc; padding: 15px; border-radius: 12px; font-family: monospace; font-size: 0.8rem; margin: 10px 0; border: 1px dashed var(--main-purple); white-space: pre-wrap; }
+  .download-btn { display: block; text-align: center; padding: 12px; background: linear-gradient(to right, var(--main-purple), var(--dark-purple)); color: white; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 10px; border: 1px solid var(--bright-purple); }
 
-  /* POPUP & ADMIN */
-  .winner-popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); background: var(--card-bg); padding: 40px; border-radius: 20px; border: 3px solid gold; text-align: center; z-index: 2000; transition: 0.3s; }
-  .winner-popup.active { transform: translate(-50%, -50%) scale(1); }
-  .admin-panel { margin-top: 100px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.7rem; opacity: 0.4; text-align: center; }
+  .spin-btn { padding: 12px 40px; background: #666; border: none; border-radius: 50px; color: white; font-weight: 800; cursor: not-allowed; }
+  .spin-btn.active { background: var(--main-purple); cursor: pointer; box-shadow: 0 5px 15px rgba(168,85,247,0.6); }
+
+  .admin-panel { margin-top: 50px; opacity: 0.3; font-size: 0.7rem; text-align: center; }
 </style>
 </head>
 <body>
+
+<div class="floating-spin-btn" onclick="openSpinModal()">
+  <i class="fas fa-dharmachakra"></i>
+</div>
 
 <header>
   <div class="logo">TERAPS</div>
@@ -78,92 +99,65 @@
 
 <div class="hero">
   <h1>TeraPS Community</h1>
-  <p style="color: #b8a3d1;">Server Private paling stabil dengan fitur Lucky Spin eksklusif.</p>
+  <p style="color: #b8a3d1;">Pilih metode instalasi di bawah untuk mulai bermain.</p>
   <div class="stats-container">
-    <div class="stat-card">
-      <div class="status-dot"></div>
-      <div style="text-align: left;"><span class="stat-value">ONLINE</span><span class="stat-label">Server Status</span></div>
-    </div>
-    <div class="stat-card">
-      <i class="fas fa-users" style="color: var(--bright-purple); font-size: 1.5rem;"></i>
-      <div style="text-align: left;"><span class="stat-value" id="player-count">64</span><span class="stat-label">Active Players</span></div>
-    </div>
+    <div class="stat-card"><div style="text-align: left;"><span style="color: gold; font-weight: 800;">68</span><br><span style="font-size: 0.7rem; color: #b8a3d1;">PLAYERS ONLINE</span></div></div>
+    <div class="stat-card"><div style="text-align: left;"><span style="color: lime; font-weight: 800;">ACTIVE</span><br><span style="font-size: 0.7rem; color: #b8a3d1;">SERVER STATUS</span></div></div>
   </div>
 </div>
 
 <div class="bonus-section">
-  <div class="bonus-title"><i class="fas fa-gift"></i> NEW PLAYER BONUS</div>
+  <div class="bonus-title">NEW PLAYER BONUS</div>
   <div class="citem-grid">
-    <div class="citem-card"><img src="redhulk.jpg" class="citem-img"><div class="citem-name">Red Hulk</div></div>
-    <div class="citem-card"><img src="chaewon.jpg" class="citem-img"><div class="citem-name">Chae-Won</div></div>
-    <div class="citem-card"><img src="nailong.jpg" class="citem-img"><div class="citem-name">Nailong</div></div>
-    <div class="citem-card"><img src="stitch.jpg" class="citem-img"><div class="citem-name">Stitch</div></div>
-    <div class="citem-card"><img src="bloodmage.jpg" class="citem-img"><div class="citem-name">Blood Mage</div></div>
-    <div class="citem-card"><img src="shadow.jpg" class="citem-img"><div class="citem-name">Shadow</div></div>
-    <div class="citem-card"><img src="gojo.jpg" class="citem-img"><div class="citem-name">Gojo</div></div>
-    <div class="citem-card"><img src="mitsuki.jpg" class="citem-img"><div class="citem-name">Mitsuki</div></div>
+    <div class="citem-card"><img src="redhulk.jpg" class="citem-img"><div style="font-size: 0.7rem;">Red Hulk</div></div>
+    <div class="citem-card"><img src="chaewon.jpg" class="citem-img"><div style="font-size: 0.7rem;">Chae-Won</div></div>
+    <div class="citem-card"><img src="nailong.jpg" class="citem-img"><div style="font-size: 0.7rem;">Nailong</div></div>
+    <div class="citem-card"><img src="stitch.jpg" class="citem-img"><div style="font-size: 0.7rem;">Stitch</div></div>
+    <div class="citem-card"><img src="bloodmage.jpg" class="citem-img"><div style="font-size: 0.7rem;">Blood Mage</div></div>
+    <div class="citem-card"><img src="shadow.jpg" class="citem-img"><div style="font-size: 0.7rem;">Shadow</div></div>
+    <div class="citem-card"><img src="gojo.jpg" class="citem-img"><div style="font-size: 0.7rem;">Gojo</div></div>
+    <div class="citem-card"><img src="mitsuki.jpg" class="citem-img"><div style="font-size: 0.7rem;">Mitsuki</div></div>
   </div>
 </div>
 
-<div class="spin-section">
-    <h2 style="color: gold;"><i class="fas fa-dharmachakra"></i> LUCKY REDEEM SPIN</h2>
-    <div class="redeem-box">
-        <p>Masukkan Kode Redeem untuk Spin:</p>
-        <input type="text" id="redeemInput" placeholder="KODE DISINI" oninput="checkCode()">
-        <p id="statusMsg" style="font-size: 0.8rem; margin-top: 10px; color: #ff4444;">Masukkan kode yang valid.</p>
+<div id="modalOverlay" class="modal-overlay">
+  <div class="spin-modal">
+    <i class="fas fa-times close-modal" onclick="closeSpinModal()"></i>
+    <h2 style="color: gold; margin-top: 0;">LUCKY SPIN</h2>
+    
+    <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 15px; margin-bottom: 20px;">
+      <p style="font-size: 0.8rem; margin: 0 0 10px;">Masukkan Kode Redeem:</p>
+      <input type="text" id="redeemInput" placeholder="KODE DISINI" oninput="checkCode()" style="padding: 10px; border-radius: 5px; border: 1px solid var(--bright-purple); background: #120a24; color: white; text-align: center; width: 80%;">
+      <p id="statusMsg" style="font-size: 0.7rem; margin-top: 5px; color: #ff4444;">Butuh kode untuk memutar.</p>
     </div>
+
     <div class="wheel-container">
-        <div class="pointer"></div>
-        <canvas id="canvas" width="500" height="500"></canvas>
+      <div class="pointer"></div>
+      <canvas id="canvas" width="500" height="500"></canvas>
     </div>
+    
     <button id="spinBtn" class="spin-btn" onclick="startSpin()" disabled>SPIN LOCKED</button>
+  </div>
 </div>
 
 <div class="container">
-  <div class="card">
-    <h2><i class="fab fa-android"></i> Android APK</h2>
-    <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/file" target="_blank" class="download-btn">Download APK</a>
-  </div>
-  <div class="card">
-    <h2><i class="fas fa-shield-alt"></i> Virtual Host</h2>
-    <a href="https://www.apkmirror.com/apk/xfalcon/virtual-hosts/virtual-hosts-2-1-0-release/virtual-hosts-2-1-0-android-apk-download/" target="_blank" class="download-btn">Download App</a>
-    <a href="https://www.mediafire.com/file/yabdip6ls5cab69/TeraPSHost.txt/file" target="_blank" class="download-btn" style="background: var(--main-purple); margin-top:10px;">Download Host</a>
-  </div>
-  <div class="card">
-    <h2><i class="fas fa-desktop"></i> Host PC / Windows</h2>
-    <div class="config-box">15.235.166.218 www.growtopia1.com 15.235.166.218 www.growtopia2.com</div>
-  </div>
-  <div class="card">
-    <h2><i class="fas fa-bolt"></i> Power Tunnel</h2>
-    <div class="config-box">https://gtpshost.com/raw/TeraPS-GH</div>
-    <a href="https://powertunnel.id.uptodown.com/android" target="_blank" class="download-btn">Download App</a>
-  </div>
-  <div class="card">
-    <h2><i class="fab fa-apple"></i> iOS (Surge 5)</h2>
-    <div class="config-box">[General]
+  <div class="card"><h2>Android APK</h2><a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/file" target="_blank" class="download-btn">Download</a></div>
+  <div class="card"><h2>Virtual Host</h2><a href="https://www.apkmirror.com/apk/xfalcon/virtual-hosts/virtual-hosts-2-1-0-release/virtual-hosts-2-1-0-android-apk-download/" class="download-btn">App</a><a href="https://www.mediafire.com/file/yabdip6ls5cab69/TeraPSHost.txt/file" class="download-btn" style="background: var(--main-purple);">Host</a></div>
+  <div class="card"><h2>PC Host</h2><div class="config-box">15.235.166.218 www.growtopia1.com 15.235.166.218 www.growtopia2.com</div></div>
+  <div class="card"><h2>iOS Surge</h2><div class="config-box">[General]
 bypass-system = true
 [Rule]
 FINAL, DIRECT
 [Host]
 growtopia1.com = 15.235.166.218
-growtopia2.com = 15.235.166.218
-www.growtopia1.com = 15.235.166.218
-www.growtopia2.com = 15.235.166.218</div>
-  </div>
-</div>
-
-<div id="winnerPopup" class="winner-popup">
-    <h2 style="color: gold;">JACKPOT!</h2>
-    <h1 id="winnerName" style="font-size: 2.5rem; margin: 15px 0;"></h1>
-    <p>Screenshot bukti ini dan kirim ke Admin!</p>
-    <button onclick="location.reload()" style="padding: 10px 20px; cursor: pointer; border-radius: 5px; border:none;">OK</button>
+growtopia2.com = 15.235.166.218</div></div>
 </div>
 
 <div class="admin-panel">
-    <h3>Admin Tools</h3>
-    <input type="password" id="adminPass" placeholder="Password Admin" style="background: #120a24; color: white; border: 1px solid #444; padding: 5px;">
-    <button onclick="genNewCode()">Generate Code</button>
-    <p id="newCodeLabel" style="color: lime; font-weight: bold; margin-top: 10px;"></p>
+  <h3>Admin</h3>
+  <input type="password" id="adminPass" placeholder="TERA100" style="padding: 5px; border-radius: 5px; border: none; background: #2d1b4d; color: white;">
+  <button onclick="genNewCode()" style="padding: 5px 10px; border-radius: 5px; cursor: pointer;">Get Code</button>
+  <p id="newCodeLabel" style="color: lime; font-weight: bold;"></p>
 </div>
 
 <script>
@@ -172,10 +166,8 @@ www.growtopia2.com = 15.235.166.218</div>
     const ctx = canvas.getContext("2d");
     let startAngle = 0;
     const arc = Math.PI / (wheelItems.length / 2);
-    
-    // PASSWORD ADMIN KAMU
     const MASTER_PASS = "TERA100";
-    let validRedeem = "GIFT-777"; 
+    let validRedeem = "START-99"; 
 
     function drawWheel() {
         ctx.clearRect(0,0,500,500);
@@ -188,16 +180,19 @@ www.growtopia2.com = 15.235.166.218</div>
         });
     }
 
+    function openSpinModal() { document.getElementById("modalOverlay").classList.add("active"); drawWheel(); }
+    function closeSpinModal() { document.getElementById("modalOverlay").classList.remove("active"); }
+
     function checkCode() {
         const input = document.getElementById("redeemInput").value.toUpperCase();
         const btn = document.getElementById("spinBtn");
         const msg = document.getElementById("statusMsg");
         if(input === validRedeem) {
-            btn.disabled = false; btn.classList.add("active"); btn.innerText = "SPIN NOW!";
+            btn.disabled = false; btn.classList.add("active"); btn.innerText = "SPIN!";
             msg.innerText = "Kode Benar!"; msg.style.color = "lime";
         } else {
-            btn.disabled = true; btn.classList.remove("active"); btn.innerText = "SPIN LOCKED";
-            msg.innerText = "Kode Salah atau Hangus."; msg.style.color = "#ff4444";
+            btn.disabled = true; btn.classList.remove("active"); btn.innerText = "LOCKED";
+            msg.innerText = "Kode Salah."; msg.style.color = "#ff4444";
         }
     }
 
@@ -205,8 +200,8 @@ www.growtopia2.com = 15.235.166.218</div>
         if(document.getElementById("adminPass").value === MASTER_PASS) {
             const code = "TERA-" + Math.floor(1000 + Math.random() * 8999);
             validRedeem = code;
-            document.getElementById("newCodeLabel").innerText = "KODE: " + code;
-        } else { alert("Password Salah!"); }
+            document.getElementById("newCodeLabel").innerText = "CODE: " + code;
+        }
     }
 
     function startSpin() {
@@ -218,8 +213,7 @@ www.growtopia2.com = 15.235.166.218</div>
             if (spinTime >= spinTimeTotal) {
                 const degrees = startAngle * 180 / Math.PI + 90;
                 const index = Math.floor((360 - degrees % 360) / (arc * 180 / Math.PI));
-                document.getElementById("winnerName").innerText = wheelItems[index];
-                document.getElementById("winnerPopup").classList.add("active");
+                alert("SELAMAT! Kamu dapat: " + wheelItems[index] + "\n\nScreenshot bukti ini!");
                 validRedeem = "USED_" + Math.random(); 
                 return;
             }
@@ -228,9 +222,7 @@ www.growtopia2.com = 15.235.166.218</div>
         }
         rotate();
     }
-
-    function updateP() { document.getElementById('player-count').innerText = Math.floor(Math.random() * (70 - 61) + 61); }
-    setInterval(updateP, 5000); updateP(); drawWheel();
 </script>
+
 </body>
 </html>
