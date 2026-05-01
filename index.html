@@ -3,254 +3,237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teraps GTPS - Premium Community</title>
+<title>TeraPS Spin Pro - Pixel Edition</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
 <style>
   :root {
-    --bright-purple: #c084fc; 
-    --main-purple: #a855f7;   
-    --dark-purple: #120a24;   
-    --deep-bg: #11081f;       
-    --panel-bg: rgba(45, 27, 77, 0.4); 
-    --card-bg: #2d1b4d;       
-    --text-light: #f3e8ff;
-    --glow: 0 0 15px rgba(168, 85, 247, 0.5);
+    --gt-purple: #4a217d;
+    --gt-dark: #1a0b2e;
+    --gt-bright: #a855f7;
+    --gt-border: #7c3aed;
+    --gt-gold: #fbbf24;
   }
-
-  * { box-sizing: border-box; }
 
   body {
-    margin: 0; font-family: 'Poppins', sans-serif;
-    background: var(--deep-bg);
-    color: var(--text-light); min-height: 100vh;
+    margin: 0; font-family: 'Courier New', Courier, monospace;
+    background: #0f051a url('https://www.transparenttextures.com/patterns/dark-matter.png');
+    color: white; min-height: 100vh; overflow-x: hidden;
   }
 
-  header {
-    background: rgba(18, 10, 36, 0.9); display: flex; justify-content: space-between;
-    align-items: center; padding: 15px 5%; position: sticky; top: 0; z-index: 1000;
-    border-bottom: 1px solid rgba(168, 85, 247, 0.3); backdrop-filter: blur(5px);
-  }
-  .logo { color: var(--bright-purple); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; text-shadow: var(--glow); }
-
-  main { padding: 20px 5% 80px; max-width: 1200px; margin: 0 auto; width: 100%; }
-
-  .hero-clean { text-align: center; margin-bottom: 40px; }
-  .hero-clean h1 { color: white; font-size: 2.5rem; margin: 0; font-weight: 800; }
-
-  .main-panel {
-    background: var(--panel-bg); border-radius: 24px; border: 1px solid rgba(168, 85, 247, 0.2);
-    padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); margin-bottom: 30px;
-    backdrop-filter: blur(10px);
+  /* PANEL UTAMA */
+  .spin-app {
+    max-width: 1100px; margin: 40px auto;
+    background: rgba(26, 11, 46, 0.9);
+    border: 4px solid var(--gt-border);
+    border-radius: 20px; padding: 30px;
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.3);
   }
 
-  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
-  .section-header h2 { font-size: 1.1rem; margin: 0; font-weight: 700; color: white; text-transform: uppercase; }
-
-  /* BONUS GRID */
-  .bonus-grid-clean { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 12px; margin-bottom: 30px; }
-  .bonus-card-clean { background: rgba(255,255,255,0.03); padding: 10px; border-radius: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
-  .bonus-img-clean { width: 100%; max-width: 60px; aspect-ratio: 1/1; object-fit: contain; margin-bottom: 8px; }
-  .bonus-name-clean { font-size: 0.7rem; color: #ccbcf2; }
-
-  /* SPIN INTEGRATION */
-  .spin-container-clean { display: grid; grid-template-columns: 1fr 300px; gap: 30px; align-items: center; }
-  @media (max-width: 800px) { .spin-container-clean { grid-template-columns: 1fr; text-align: center; } }
-
-  .redeem-zone { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 16px; border: 1px solid rgba(168, 85, 247, 0.2); }
-  .redeem-zone input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--main-purple); background: rgba(18, 10, 36, 0.5); color: white; text-align: center; margin-bottom: 10px; font-weight: bold; }
-
-  .wheel-box { position: relative; width: 300px; height: 300px; margin: 0 auto; }
-  #canvas { width: 100%; height: 100%; border-radius: 50%; border: 4px solid var(--dark-purple); }
-  .pointer-clean { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 25px solid #ff4444; z-index: 10; }
-
-  .spin-btn-clean { width: 100%; padding: 12px; background: #555; border: none; border-radius: 8px; color: white; font-weight: 800; cursor: not-allowed; text-transform: uppercase; margin-top: 15px; }
-  .spin-btn-clean.active { background: var(--main-purple); cursor: pointer; box-shadow: var(--glow); }
-
-  /* DOWNLOAD GRID */
-  .download-grid-clean { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-  .dl-card-clean { background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid rgba(168,85,247,0.1); }
-  .config-box { background: #120a24; color: #a8ffcc; padding: 15px; border-radius: 12px; font-family: monospace; font-size: 0.8rem; border: 1px dashed var(--main-purple); white-space: pre-wrap; margin: 10px 0; }
-  .dl-btn-clean { display: inline-block; width: 100%; text-align: center; padding: 10px; background: rgba(168, 85, 247, 0.1); color: var(--bright-purple); border-radius: 8px; font-weight: 600; border: 1px solid rgba(168, 85, 247, 0.3); margin-top: 5px; }
-
-  /* POPUP */
-  .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; z-index: 4000; backdrop-filter: blur(5px); }
-  .popup-overlay.active { display: flex; }
-  .popup-clean { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 2px solid gold; text-align: center; max-width: 400px; width: 90%; }
-
-  /* ADMIN (HIDDEN) */
-  .admin-trigger { position: fixed; bottom: 10px; left: 10px; font-size: 0.5rem; color: #111; cursor: pointer; opacity: 0.1; }
-  .admin-panel-clean {
-    position: fixed; bottom: 20px; left: 20px; background: var(--card-bg);
-    padding: 15px; border-radius: 12px; border: 1px solid var(--main-purple);
-    display: none; z-index: 3000; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  .title-area { text-align: center; margin-bottom: 30px; }
+  .title-area h1 { 
+    font-size: 2.5rem; color: white; text-shadow: 4px 4px 0px var(--gt-purple);
+    letter-spacing: 2px; margin: 0;
   }
-  .admin-panel-clean.active { display: block; }
-  .admin-panel-clean input { background: #11081f; border: 1px solid #444; color: white; padding: 8px; border-radius: 5px; width: 120px; margin-bottom: 10px; font-size: 0.8rem; }
-  .admin-panel-clean button { background: var(--main-purple); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
+
+  .main-layout { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+  /* SIDEBAR LEFT: LIST PESERTA */
+  .side-panel {
+    width: 280px; background: #2d1b4d; border: 3px solid var(--gt-purple);
+    border-radius: 15px; padding: 20px;
+  }
+  .side-panel h3 { margin-top: 0; border-bottom: 2px solid var(--gt-border); padding-bottom: 10px; font-size: 1rem; }
+  
+  .input-box {
+    width: 100%; padding: 10px; margin-bottom: 10px;
+    background: #1a0b2e; border: 2px solid var(--gt-border);
+    color: white; border-radius: 5px;
+  }
+
+  .btn-gt {
+    width: 100%; padding: 10px; background: var(--gt-bright);
+    border: none; border-bottom: 4px solid #7e22ce;
+    color: white; font-weight: bold; cursor: pointer; border-radius: 5px;
+  }
+
+  .item-list { margin-top: 15px; max-height: 250px; overflow-y: auto; }
+  .item-row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(0,0,0,0.3); padding: 8px; margin-bottom: 5px; border-radius: 5px;
+  }
+
+  /* WHEEL AREA (CENTER) */
+  .wheel-area { position: relative; text-align: center; }
+  .canvas-wrapper { position: relative; width: 400px; height: 400px; margin: 0 auto; }
+  #wheelCanvas { width: 100%; height: 100%; border-radius: 50%; border: 10px solid #2d1b4d; }
+  
+  .pointer {
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    width: 0; height: 0; border-left: 20px solid transparent;
+    border-right: 20px solid transparent; border-top: 35px solid #ff4444; z-index: 10;
+  }
+
+  /* REDEEM SYSTEM */
+  .redeem-bar {
+    background: #1a0b2e; padding: 15px; border-radius: 10px;
+    margin: 20px auto; max-width: 400px; border: 2px dashed var(--gt-gold);
+  }
+
+  /* POPUP WINNER */
+  .winner-modal {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0);
+    background: var(--gt-dark); padding: 40px; border: 5px solid var(--gt-gold);
+    border-radius: 20px; text-align: center; z-index: 1000; transition: 0.3s;
+  }
+  .winner-modal.active { transform: translate(-50%, -50%) scale(1); }
+
+  /* ADMIN PANEL (HIDDEN) */
+  .admin-zone { font-size: 0.6rem; opacity: 0.2; text-align: center; margin-top: 50px; }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <div class="logo">TERAPS</div>
-  <div style="font-size: 0.8rem; color: #22c55e; font-weight: bold;"><i class="fas fa-circle" style="font-size: 0.6rem;"></i> v2.5 ONLINE</div>
-</header>
-
-<main>
-  <div class="hero-clean">
-    <h1>TeraPS GTPS</h1>
-    <p style="color: #b8a3d1;">Private server terbaik dengan sistem Lucky Spin eksklusif.</p>
-  </div>
-
-  <div class="main-panel">
-    <div class="section-header">
-      <i class="fas fa-gift"></i>
-      <h2>New Player Bonus</h2>
-    </div>
-    <div class="bonus-grid-clean">
-      <div class="bonus-card-clean"><img src="redhulk.jpg" class="bonus-img-clean"><div class="bonus-name-clean">Red Hulk</div></div>
-      <div class="bonus-card-clean"><img src="chaewon.jpg" class="bonus-img-clean"><div class="bonus-name-clean">Chae-Won</div></div>
-      <div class="bonus-card-clean"><img src="nailong.jpg" class="bonus-img-clean"><div class="bonus-name-clean">Nailong</div></div>
-      <div class="bonus-card-clean"><img src="stitch.jpg" class="bonus-img-clean"><div class="bonus-name-clean">Stitch</div></div>
-      <div class="bonus-card-clean"><img src="bloodmage.jpg" class="bonus-img-clean"><div class="bonus-name-clean">Blood Mage</div></div>
-      <div class="bonus-card-clean"><img src="shadow.jpg" class="bonus-img-clean"><div class="bonus-name-clean">Shadow</div></div>
-      <div class="bonus-card-clean"><img src="gojo.jpg" class="bonus-img-clean"><div class="bonus-name-clean">Gojo</div></div>
-      <div class="bonus-card-clean"><img src="mitsuki.jpg" class="bonus-img-clean"><div class="bonus-name-clean">Mitsuki</div></div>
+<div class="spin-app">
+    <div class="title-area">
+        <h1>TeraPS <span style="color:var(--gt-bright)">SPIN</span></h1>
+        <div class="redeem-bar">
+            <input type="text" id="redeemIn" placeholder="ENTER REDEEM CODE" oninput="verify()" style="background:none; border:none; color:gold; text-align:center; font-weight:bold; width:100%; outline:none;">
+        </div>
     </div>
 
-    <div class="section-header">
-      <i class="fas fa-dharmachakra"></i>
-      <h2>Lucky Redeem Spin</h2>
-    </div>
-    <div class="spin-container-clean">
-      <div class="redeem-zone">
-        <h3 style="color: gold; margin: 0 0 10px;">JACKPOT AREA</h3>
-        <p style="font-size: 0.8rem; color: #b8a3d1; margin-bottom: 15px;">Gunakan Kode Redeem untuk memutar roda.</p>
-        <input type="text" id="redeemInput" placeholder="MASUKKAN KODE" oninput="checkCode()">
-        <p id="statusMsg" style="font-size: 0.7rem; color: #ff4444; font-weight: bold; margin: 0;">Status: Menunggu Kode...</p>
-        <button id="spinBtn" class="spin-btn-clean" onclick="startSpin()" disabled>SPIN LOCKED</button>
-      </div>
-      <div class="wheel-box">
-        <div class="pointer-clean"></div>
-        <canvas id="canvas" width="500" height="500"></canvas>
-      </div>
-    </div>
-  </div>
+    <div class="main-layout">
+        <div class="side-panel">
+            <h3><i class="fas fa-users"></i> List Peserta</h3>
+            <input type="text" id="nameIn" class="input-box" placeholder="Nama Hadiah/Player">
+            <button class="btn-gt" onclick="add()">TAMBAH</button>
+            <div id="itemList" class="item-list"></div>
+        </div>
 
-  <div class="section-header">
-    <i class="fas fa-download"></i>
-    <h2>Download Methods</h2>
-  </div>
-  <div class="download-grid-clean">
-    <div class="dl-card-clean">
-      <h3>Android APK</h3>
-      <p>Download langsung dan install di HP kamu.</p>
-      <a href="https://www.mediafire.com/file/r4t8xbzoquil3w2/TeraPS.apk/file" target="_blank" class="dl-btn-clean">DOWNLOAD APK</a>
-    </div>
-    <div class="dl-card-clean">
-      <h3>Virtual Host</h3>
-      <p>Gunakan App Virtual Host dan pasang file hostnya.</p>
-      <a href="https://www.apkmirror.com/apk/xfalcon/virtual-hosts/" target="_blank" class="dl-btn-clean">APP</a>
-      <a href="https://www.mediafire.com/file/yabdip6ls5cab69/TeraPSHost.txt/file" target="_blank" class="dl-btn-clean">HOST FILE</a>
-    </div>
-    <div class="dl-card-clean">
-      <h3>Host PC Windows</h3>
-      <p>Edit file host di C:\Windows\System32\drivers\etc\hosts</p>
-      <div class="config-box">15.235.166.218 www.growtopia1.com
-15.235.166.218 www.growtopia2.com</div>
-    </div>
-    <div class="dl-card-clean">
-      <h3>Power Tunnel</h3>
-      <p>Salin raw host link ke aplikasi Power Tunnel.</p>
-      <div class="config-box">https://gtpshost.com/raw/TeraPS-GH</div>
-    </div>
-  </div>
-</main>
+        <div class="wheel-area">
+            <div class="canvas-wrapper">
+                <div class="pointer"></div>
+                <canvas id="wheelCanvas" width="500" height="500"></canvas>
+            </div>
+            <button id="spinBtn" class="btn-gt" style="margin-top:25px; width:200px; font-size:1.5rem; background:#666;" onclick="play()" disabled>LOCKED</button>
+        </div>
 
-<div id="popupOverlay" class="popup-overlay">
-  <div class="popup-clean">
-    <h2 style="color: gold; font-weight: 800;">SELAMAT!</h2>
-    <p style="color: #b8a3d1;">Kamu mendapatkan item:</p>
-    <h1 id="winnerName" style="color: white; font-size: 2.5rem; margin: 15px 0;"></h1>
-    <p style="font-size: 0.8rem; color: #ff4444; font-weight: bold;">SCREENSHOT BUKTI INI!</p>
-    <button onclick="location.reload()" style="padding: 10px 25px; border-radius: 8px; border:none; background: white; color: black; font-weight: 800; cursor: pointer; margin-top: 15px;">OKE</button>
-  </div>
+        <div class="side-panel" style="width:200px;">
+            <h3><i class="fas fa-cog"></i> Pengaturan</h3>
+            <label style="font-size:0.8rem;"><input type="checkbox" id="delWin"> Hapus Pemenang</label>
+        </div>
+    </div>
 </div>
 
-<div class="admin-trigger" onclick="toggleAdmin()">.</div>
-<div id="adminPanel" class="admin-panel-clean">
-  <input type="password" id="adminPass" placeholder="PASSWORD">
-  <button onclick="genNewCode()">GENERATE</button>
-  <p id="newCodeLabel" style="color: lime; font-weight: bold; font-size: 0.9rem; margin-top: 10px; text-align: center;"></p>
+<div id="winModal" class="winner-modal">
+    <h2 style="color:var(--gt-gold);">🎉 PEMENANG 🎉</h2>
+    <h1 id="winName" style="font-size: 3rem; margin: 15px 0;"></h1>
+    <button class="btn-gt" onclick="location.reload()">CLAIM HADIAH</button>
+</div>
+
+<div class="admin-zone">
+    <input type="password" id="adP" placeholder="Admin Pass" style="width:50px;"> 
+    <button onclick="gen()">Gen</button>
+    <span id="newCode" style="color:lime; margin-left:10px;"></span>
 </div>
 
 <script>
-    const wheelItems = ["Red Hulk", "Chae-Won", "Nailong", "Stitch", "Blood Mage", "Shadow", "Gojo", "Mitsuki"];
-    const canvas = document.getElementById("canvas");
+    let participants = ["Red Hulk", "Chae-Won", "Nailong", "Stitch", "Blood Mage", "Shadow", "Gojo", "Mitsuki"];
+    const canvas = document.getElementById("wheelCanvas");
     const ctx = canvas.getContext("2d");
     let startAngle = 0;
-    const arc = Math.PI / (wheelItems.length / 2);
-    
-    // PASSWORD TETAP TERA100 (DI DALAM KODE SAJA)
-    const MASTER_PASS = "TERA100";
-    let validRedeem = "START-777"; 
+    const MASTER_PW = "TERA100";
+    let activeCode = "TERA-PRO";
 
-    function drawWheel() {
+    // Gambar Avatar (Dummy Link - Nanti otomatis pakai file kamu)
+    const avatars = {
+        "Red Hulk": "redhulk.jpg", "Chae-Won": "chaewon.jpg", "Nailong": "nailong.jpg",
+        "Stitch": "stitch.jpg", "Blood Mage": "bloodmage.jpg", "Shadow": "shadow.jpg",
+        "Gojo": "gojo.jpg", "Mitsuki": "mitsuki.jpg"
+    };
+
+    function draw() {
         ctx.clearRect(0,0,500,500);
-        wheelItems.forEach((text, i) => {
+        const arc = Math.PI / (participants.length / 2);
+        participants.forEach((text, i) => {
             const angle = startAngle + i * arc;
-            ctx.fillStyle = i % 2 === 0 ? "#a855f7" : "#2d1b4d";
+            ctx.fillStyle = i % 2 === 0 ? "#4a217d" : "#1a0b2e";
             ctx.beginPath(); ctx.arc(250, 250, 230, angle, angle + arc, false); ctx.lineTo(250, 250); ctx.fill();
-            ctx.save(); ctx.fillStyle = "white"; ctx.translate(250 + Math.cos(angle + arc/2) * 160, 250 + Math.sin(angle + arc/2) * 160);
-            ctx.rotate(angle + arc/2 + Math.PI/2); ctx.font = 'bold 16px sans-serif'; ctx.fillText(text, -ctx.measureText(text).width/2, 0); ctx.restore();
+            ctx.strokeStyle = "#7c3aed"; ctx.lineWidth = 2; ctx.stroke();
+
+            ctx.save();
+            ctx.translate(250 + Math.cos(angle + arc/2) * 160, 250 + Math.sin(angle + arc/2) * 160);
+            ctx.rotate(angle + arc/2 + Math.PI/2);
+            
+            // Text Hadiah
+            ctx.fillStyle = "white";
+            ctx.font = 'bold 14px sans-serif';
+            ctx.fillText(text, -ctx.measureText(text).width/2, 35);
+            
+            // Gambar Karakter (Jika ada)
+            const img = new Image();
+            img.src = avatars[text] || "1.jpg"; // Fallback ke file 1.jpg
+            ctx.drawImage(img, -20, -40, 40, 40); 
+            
+            ctx.restore();
         });
     }
 
-    function checkCode() {
-        const input = document.getElementById("redeemInput").value.toUpperCase();
+    function add() {
+        const val = document.getElementById("nameIn").value;
+        if(val) { participants.push(val); refreshList(); draw(); }
+    }
+
+    function refreshList() {
+        const list = document.getElementById("itemList");
+        list.innerHTML = participants.map((p, i) => `
+            <div class="item-row">
+                <span>${p}</span>
+                <i class="fas fa-trash" style="color:red; cursor:pointer;" onclick="remove(${i})"></i>
+            </div>
+        `).join('');
+    }
+
+    function remove(i) { participants.splice(i, 1); refreshList(); draw(); }
+
+    function verify() {
         const btn = document.getElementById("spinBtn");
-        const msg = document.getElementById("statusMsg");
-        if(input === validRedeem) {
-            btn.disabled = false; btn.classList.add("active"); btn.innerText = "READY TO SPIN!";
-            msg.innerText = "Status: Kode Benar!"; msg.style.color = "lime";
-        } else {
-            btn.disabled = true; btn.classList.remove("active"); btn.innerText = "SPIN LOCKED";
-            msg.innerText = "Status: Kode Salah/Hangus."; msg.style.color = "#ff4444";
+        if(document.getElementById("redeemIn").value.toUpperCase() === activeCode) {
+            btn.disabled = false; btn.style.background = "#a855f7"; btn.innerText = "SPIN NOW!";
         }
     }
 
-    function genNewCode() {
-        if(document.getElementById("adminPass").value === MASTER_PASS) {
-            const code = "TERA-" + Math.floor(1000 + Math.random() * 8999);
-            validRedeem = code;
-            document.getElementById("newCodeLabel").innerText = "KODE: " + code;
-        } else { alert("Akses Ditolak!"); }
+    function gen() {
+        if(document.getElementById("adP").value === MASTER_PW) {
+            activeCode = "WIN-" + Math.floor(Math.random()*999);
+            document.getElementById("newCode").innerText = activeCode;
+        }
     }
 
-    function toggleAdmin() { document.getElementById("adminPanel").classList.toggle("active"); }
-
-    function startSpin() {
+    function play() {
         document.getElementById("spinBtn").disabled = true;
-        const spinAngleStart = Math.random() * 10 + 10;
-        let spinTime = 0; const spinTimeTotal = Math.random() * 3 + 4 * 1000;
-        function rotate() {
-            spinTime += 30;
-            if (spinTime >= spinTimeTotal) {
+        let speed = Math.random() * 10 + 15;
+        const totalSpin = 100 + Math.random() * 50;
+        let count = 0;
+
+        function animate() {
+            startAngle += (speed * Math.PI / 180);
+            speed *= 0.98; // Gesekan pelan-pelan
+            draw();
+            if(speed > 0.1) { requestAnimationFrame(animate); }
+            else {
+                const arc = Math.PI / (participants.length / 2);
                 const degrees = startAngle * 180 / Math.PI + 90;
                 const index = Math.floor((360 - degrees % 360) / (arc * 180 / Math.PI));
-                document.getElementById("winnerName").innerText = wheelItems[index];
-                document.getElementById("popupOverlay").classList.add("active");
-                validRedeem = "EXPIRED-" + Math.random(); 
-                return;
+                document.getElementById("winName").innerText = participants[index];
+                document.getElementById("winModal").classList.add("active");
+                activeCode = "EXPIRED"; 
             }
-            startAngle += ((spinAngleStart - (spinTime / spinTimeTotal * spinAngleStart)) * Math.PI / 180);
-            drawWheel(); setTimeout(rotate, 30);
         }
-        rotate();
+        animate();
     }
-    drawWheel();
+
+    refreshList();
+    window.onload = draw;
 </script>
 </body>
 </html>
